@@ -10,7 +10,7 @@ function App() {
       <NavBar />
       <Login />
     </div>
-  );
+  ); 
 }
 
 export default App;
