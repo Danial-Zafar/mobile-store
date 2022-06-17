@@ -1,0 +1,54 @@
+{
+  "mobiles": [
+    {
+      "deviceName" : "A32",
+        "price" : 250,
+        "color" : "black",
+        "screemSize" : "5 inch",
+        "os" : "Android",
+        "ram" : "125GB",
+        "storage" : "128GB",
+        "imageURL" : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnRJMyUYcHh_wl8WsryyEtESNp6MdcLdrT8e6yZsCa8bubKMPDbsZvjesiwruwILR5zIA&usqp=CAU"
+    },
+    {
+      "deviceName" : "A32",
+        "price" : 250,
+        "color" : "black",
+        "screemSize" : "5 inch",
+        "os" : "Android",
+        "ram" : "125GB",
+        "storage" : "128GB",
+        "imageURL" : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnRJMyUYcHh_wl8WsryyEtESNp6MdcLdrT8e6yZsCa8bubKMPDbsZvjesiwruwILR5zIA&usqp=CAU"
+    },
+    {
+      "deviceName" : "A32",
+        "price" : 250,
+        "color" : "black",
+        "screemSize" : "5 inch",
+        "os" : "Android",
+        "ram" : "125GB",
+        "storage" : "128GB",
+        "imageURL" : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnRJMyUYcHh_wl8WsryyEtESNp6MdcLdrT8e6yZsCa8bubKMPDbsZvjesiwruwILR5zIA&usqp=CAU"
+    },
+    {
+      "deviceName" : "A32",
+        "price" : 250,
+        "color" : "black",
+        "screemSize" : "5 inch",
+        "os" : "Android",
+        "ram" : "125GB",
+        "storage" : "128GB",
+        "imageURL" : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnRJMyUYcHh_wl8WsryyEtESNp6MdcLdrT8e6yZsCa8bubKMPDbsZvjesiwruwILR5zIA&usqp=CAU"
+    },
+    {
+      "deviceName" : "A32",
+        "price" : 250,
+        "color" : "black",
+        "screemSize" : "5 inch",
+        "os" : "Android",
+        "ram" : "125GB",
+        "storage" : "128GB",
+        "imageURL" : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnRJMyUYcHh_wl8WsryyEtESNp6MdcLdrT8e6yZsCa8bubKMPDbsZvjesiwruwILR5zIA&usqp=CAU"
+    }
+  ]
+}
