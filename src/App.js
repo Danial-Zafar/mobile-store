@@ -1,38 +1,58 @@
 // import logo from './logo.svg';
-import './App.css';
+import React, {useEffect, useState} from 'react'
+import {Routes,Route} from 'react-router-dom'
+import axios from 'axios';
+import Container from '@material-ui/core/Container';
 
+
+import './App.css';
+import Dashboard from './components/Dashboard';
 import NavBar from'./components/nav-bar'
 import Login from './components/Login'
-import MobileCard from './components/MobileCard'
-import Grid from '@material-ui/core/Grid';
-import Container from '@material-ui/core/Container';
 import MobileDetail from './components/MobileDetail'
 import CartDetail from './components/CartDetail'
+import Home from './components/Home';
 
-function mobileCard(){
-  var elements = [];
-  for(let i =0; i < 5; i++){
-       elements.push(<MobileCard />);
-   }
+export const MobileDBContext = React.createContext()
 
-   return elements;
-}
+
 
 function App() {
+  const [mobileData, setMobileData]= useState([])
+
+  useEffect(() => {
+    async function fetchData() {
+      try{
+         const res = await axios.get('http://localhost:3000/mobiles')
+        
+          setMobileData(res.data)
+     } catch (err){
+     
+         console.log(err);
+     }
+    }
+
+    fetchData()
+   }, [])
+
   return (
       <div className="App">
         <NavBar />
-        <Container maxWidth="xl">
-          
-          <Login />
-          <Grid container spacing={3} >
-            {mobileCard()}
-          </Grid>
-          <MobileDetail />
-          <CartDetail />
-        </Container>
+        <MobileDBContext.Provider value={mobileData}>
+          <Container maxWidth="xl">
+            <Routes>
+              <Route path='/' element={<Home />} />
+              <Route path='/login' element={<Login />} />
+              <Route path='dashboard' element={<Dashboard  />} />
+              <Route path='mobile-details' element={<MobileDetail />} />
+              <Route path='cart' element={<CartDetail />} />
+            </Routes>
+          </Container>
+        </MobileDBContext.Provider>
     </div>
   ); 
 }
+
+
 
 export default App;

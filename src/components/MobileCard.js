@@ -24,7 +24,7 @@ export default function MobileCard() {
           component="img"
           alt="Contemplative Reptile"
           height="140"
-          image="/static/images/cards/contemplative-reptile.jpg"
+          image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnRJMyUYcHh_wl8WsryyEtESNp6MdcLdrT8e6yZsCa8bubKMPDbsZvjesiwruwILR5zIA&usqp=CAU"
           title="Contemplative Reptile"
         />
         <CardContent>
