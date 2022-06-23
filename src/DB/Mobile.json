@@ -2,7 +2,7 @@
   "mobiles": [
     {
       "id" : 1,
-      "deviceName" : "A32",
+      "deviceName" : "A30",
       "price" : 250,
       "color" : "black",
       "screemSize" : "5 inch",
@@ -13,8 +13,8 @@
     },
     {
       "id" : 2,
-      "deviceName" : "A32",
-      "price" : 250,
+      "deviceName" : "A33",
+      "price" : 350,
       "color" : "black",
       "screemSize" : "5 inch",
       "os" : "Android",
@@ -24,8 +24,8 @@
     },
     {
       "id" : 3,
-      "deviceName" : "A32",
-      "price" : 250,
+      "deviceName" : "A34",
+      "price" : 400,
       "color" : "black",
       "screemSize" : "5 inch",
       "os" : "Android",
@@ -35,8 +35,8 @@
     },
     {
       "id" : 4,
-      "deviceName" : "A32",
-      "price" : 250,
+      "deviceName" : "A35",
+      "price" : 500,
       "color" : "black",
       "screemSize" : "5 inch",
       "os" : "Android",
@@ -46,8 +46,8 @@
     },
     {
       "id" : 5,
-      "deviceName" : "A32",
-      "price" : 250,
+      "deviceName" : "A36",
+      "price" : 550,
       "color" : "black",
       "screemSize" : "5 inch",
       "os" : "Android",

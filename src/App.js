@@ -3,6 +3,7 @@ import React, {useEffect, useState} from 'react'
 import {Routes,Route} from 'react-router-dom'
 import axios from 'axios';
 import Container from '@material-ui/core/Container';
+import { SnackbarProvider } from 'notistack';
 
 
 import './App.css';
@@ -19,6 +20,7 @@ export const MobileDBContext = React.createContext()
 
 function App() {
   const [mobileData, setMobileData]= useState([])
+  
 
   useEffect(() => {
     async function fetchData() {
@@ -38,17 +40,19 @@ function App() {
   return (
       <div className="App">
         <NavBar />
+        <SnackbarProvider maxSnack={3}>
         <MobileDBContext.Provider value={mobileData}>
           <Container maxWidth="xl">
             <Routes>
               <Route path='/' element={<Home />} />
               <Route path='/login' element={<Login />} />
               <Route path='dashboard' element={<Dashboard  />} />
-              <Route path='mobile-details' element={<MobileDetail />} />
+              <Route path='mobile-details/:id' element={<MobileDetail />} />
               <Route path='cart' element={<CartDetail />} />
             </Routes>
           </Container>
         </MobileDBContext.Provider>
+        </SnackbarProvider>
     </div>
   ); 
 }

@@ -9,6 +9,9 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
+import { useSnackbar } from 'notistack';
+
+
 
 const TAX_RATE = 0.07;
 
@@ -47,8 +50,17 @@ const invoiceTotal = invoiceTaxes + invoiceSubtotal;
 
 export default function CartDetail() {
   const classes = useStyles();
+  const { enqueueSnackbar } = useSnackbar();
+
+
+  const handleClickVariant = (variant) => () => {
+    // variant could be success, error, warning, info, or default
+    enqueueSnackbar('This is a success message!', { variant });
+  };
 
   return (
+    <>
+    <h1>Cart Detail</h1>
     <TableContainer component={Paper}>
       <Table className={classes.table} aria-label="spanning table">
         <TableHead>
@@ -68,7 +80,7 @@ export default function CartDetail() {
               <TableCell align="left">abc 123</TableCell>
               <TableCell align="left"><TextField type="number" /></TableCell>
               <TableCell align="left">400</TableCell>
-              <TableCell align="left"> <Button variant="outlined">Reset</Button></TableCell>
+              <TableCell align="left"> <Button variant="outlined">Remove</Button></TableCell>
             </TableRow>
         
 
@@ -78,6 +90,11 @@ export default function CartDetail() {
           </TableRow>
         </TableBody>
       </Table>
+      
     </TableContainer>
+    <React.Fragment>
+      <Button onClick={handleClickVariant('success')}>Place Order</Button>
+    </React.Fragment>
+    </>
   );
 }
