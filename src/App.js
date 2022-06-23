@@ -26,7 +26,7 @@ function App() {
     async function fetchData() {
       try{
          const res = await axios.get('http://localhost:3000/mobiles')
-        
+     
           setMobileData(res.data)
      } catch (err){
      
@@ -39,9 +39,10 @@ function App() {
 
   return (
       <div className="App">
+        
         <NavBar />
         <SnackbarProvider maxSnack={3}>
-        <MobileDBContext.Provider value={mobileData}>
+        <MobileDBContext.Provider value={mobileData.mobiles}>
           <Container maxWidth="xl">
             <Routes>
               <Route path='/' element={<Home />} />

@@ -1,0 +1,59 @@
+{
+  "mobiles": [
+    {
+      "id": 1,
+      "deviceName": "A30",
+      "price": 400,
+      "color": "black",
+      "screemSize": "5 inch",
+      "os": "Android",
+      "ram": "125GB",
+      "storage": "128GB",
+      "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnRJMyUYcHh_wl8WsryyEtESNp6MdcLdrT8e6yZsCa8bubKMPDbsZvjesiwruwILR5zIA&usqp=CAU"
+    },
+    {
+      "id": 2,
+      "deviceName": "A33",
+      "price": 350,
+      "color": "black",
+      "screemSize": "5 inch",
+      "os": "Android",
+      "ram": "125GB",
+      "storage": "128GB",
+      "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnRJMyUYcHh_wl8WsryyEtESNp6MdcLdrT8e6yZsCa8bubKMPDbsZvjesiwruwILR5zIA&usqp=CAU"
+    },
+    {
+      "id": 3,
+      "deviceName": "A34",
+      "price": 250,
+      "color": "black",
+      "screemSize": "5 inch",
+      "os": "Android",
+      "ram": "125GB",
+      "storage": "128GB",
+      "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnRJMyUYcHh_wl8WsryyEtESNp6MdcLdrT8e6yZsCa8bubKMPDbsZvjesiwruwILR5zIA&usqp=CAU"
+    },
+    {
+      "id": 4,
+      "deviceName": "A35",
+      "price": 500,
+      "color": "black",
+      "screemSize": "5 inch",
+      "os": "Android",
+      "ram": "125GB",
+      "storage": "128GB",
+      "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnRJMyUYcHh_wl8WsryyEtESNp6MdcLdrT8e6yZsCa8bubKMPDbsZvjesiwruwILR5zIA&usqp=CAU"
+    },
+    {
+      "id": 5,
+      "deviceName": "A36",
+      "price": 350,
+      "color": "black",
+      "screemSize": "5 inch",
+      "os": "Android",
+      "ram": "125GB",
+      "storage": "128GB",
+      "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnRJMyUYcHh_wl8WsryyEtESNp6MdcLdrT8e6yZsCa8bubKMPDbsZvjesiwruwILR5zIA&usqp=CAU"
+    }
+  ]
+}
