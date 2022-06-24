@@ -16,12 +16,24 @@ const useStyles = makeStyles({
   },
 });
 
-
-
 export default function MobileCard(props) {
   const classes = useStyles();
 
   const navigate = useNavigate();
+
+  function addToCart() {
+    if(!JSON.parse(localStorage.getItem("cart"))){
+      
+      localStorage.setItem('cart', JSON.stringify([props.mobile]));
+    } else {
+      let obj = JSON.parse(localStorage.getItem("cart"));
+     
+      obj.push(props.mobile)
+     
+      localStorage.setItem('cart', JSON.stringify(obj));
+     
+    }
+  }
 
   return (
     <Grid item xs={3}>
@@ -48,7 +60,7 @@ export default function MobileCard(props) {
           <Button size="small" color="primary" onClick={() => navigate(`/mobile-details/${props.mobile.id}`)}>
             View Details
           </Button>
-          <Button size="small" color="primary">
+          <Button size="small" color="primary" onClick={addToCart.bind()}>
             Add to Cart
           </Button>
         </CardActions>

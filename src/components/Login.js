@@ -50,10 +50,10 @@ export default function Login() {
       <h1>Login</h1>
       <Grid justifyContent="center" container spacing={2}>
         <Grid  item xs={12}>
-          <TextField id="outlined-basic" label="Username" value={userName} onChange={onUsernameChange} variant="outlined" />
+          <TextField label="Username" value={userName} onChange={onUsernameChange} variant="outlined" />
         </Grid>
         <Grid  item xs={12}>
-          <TextField id="outlined-basic" type="password" label="Password" value={password} onChange={onPasswordChange} variant="outlined" />
+          <TextField type="password" label="Password" value={password} onChange={onPasswordChange} variant="outlined" />
         </Grid>
       </Grid>
       <Grid container 
