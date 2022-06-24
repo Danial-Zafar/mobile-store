@@ -26,11 +26,11 @@ export default function MobileCard(props) {
       
       localStorage.setItem('cart', JSON.stringify([props.mobile]));
     } else {
-      let obj = JSON.parse(localStorage.getItem("cart"));
+      let cartItems = JSON.parse(localStorage.getItem("cart"));
      
-      obj.push(props.mobile)
+      cartItems.push(props.mobile)
      
-      localStorage.setItem('cart', JSON.stringify(obj));
+      localStorage.setItem('cart', JSON.stringify(cartItems));
      
     }
   }

@@ -52,49 +52,64 @@ export default function CartDetail() {
   const classes = useStyles();
   const { enqueueSnackbar } = useSnackbar();
 
+  let saveCartItems = JSON.parse(localStorage.getItem("cart"));
+
 
   const handleClickVariant = (variant) => () => {
-    // variant could be success, error, warning, info, or default
     enqueueSnackbar('This is a success message!', { variant });
   };
 
+  function removeCartItem(id) {
+    saveCartItems.
+  }
+
+  function cartItems() {
+   
+    return (
+      saveCartItems.map((x) =>{
+        return (
+          <TableRow>
+          <TableCell><img src={x.imageURL} /></TableCell>
+          <TableCell align="left">{x.deviceName}</TableCell>
+          <TableCell align="left"><TextField type="number" /></TableCell>
+          <TableCell align="left">{x.price}</TableCell>
+          <TableCell align="left"> <Button variant="outlined" onClick={removeCartItem.bind(x.id)}>Remove</Button></TableCell>
+        </TableRow>
+        )
+      })
+     
+    )
+  }
+
   return (
     <>
-    <h1>Cart Detail</h1>
-    <TableContainer component={Paper}>
-      <Table className={classes.table} aria-label="spanning table">
-        <TableHead>
-          
-          <TableRow>
-            <TableCell align="left">Device</TableCell>
-            <TableCell align="left">Model</TableCell>
-            <TableCell align="left">Quantity</TableCell>
-            <TableCell align="left">Price</TableCell>
-            <TableCell align="left"></TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-       
+      <h1>Cart Detail</h1>
+      <TableContainer component={Paper}>
+        <Table className={classes.table} aria-label="spanning table">
+          <TableHead>
             <TableRow>
-              <TableCell><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnRJMyUYcHh_wl8WsryyEtESNp6MdcLdrT8e6yZsCa8bubKMPDbsZvjesiwruwILR5zIA&usqp=CAU"  /></TableCell>
-              <TableCell align="left">abc 123</TableCell>
-              <TableCell align="left"><TextField type="number" /></TableCell>
-              <TableCell align="left">400</TableCell>
-              <TableCell align="left"> <Button variant="outlined">Remove</Button></TableCell>
+              <TableCell align="left">Device</TableCell>
+              <TableCell align="left">Model</TableCell>
+              <TableCell align="left">Quantity</TableCell>
+              <TableCell align="left">Price</TableCell>
+              <TableCell align="left"></TableCell>
             </TableRow>
-        
+          </TableHead>
+          <TableBody>
+            {
+              cartItems()
+            }
+            <TableRow>
+              <TableCell colSpan={2}>Total</TableCell>
+              <TableCell align="right">{ccyFormat(invoiceTotal)}</TableCell>
+            </TableRow>
+          </TableBody>
+        </Table>
 
-          <TableRow>
-            <TableCell colSpan={2}>Total</TableCell>
-            <TableCell align="right">{ccyFormat(invoiceTotal)}</TableCell>
-          </TableRow>
-        </TableBody>
-      </Table>
-      
-    </TableContainer>
-    <React.Fragment>
-      <Button onClick={handleClickVariant('success')}>Place Order</Button>
-    </React.Fragment>
+      </TableContainer>
+      <React.Fragment>
+        <Button onClick={handleClickVariant('success')}>Place Order</Button>
+      </React.Fragment>
     </>
   );
 }
