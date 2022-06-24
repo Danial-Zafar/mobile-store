@@ -4,8 +4,8 @@ import Grid from '@material-ui/core/Grid';
 import Box from '@mui/material/Box';
 import Slider from '@mui/material/Slider';
 import TextField from '@mui/material/TextField';
-import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
-import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
+// import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+// import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
 import Button from '@mui/material/Button'
 
 import MobileCard from './MobileCard'
@@ -78,13 +78,13 @@ export default function Dashboard() {
 
   let mobileList = (param) => {
     
-    if (param == 'search') {
+    if (param ==='search') {
 
       return searchMobileList();
-    } else if (param == 'price') {
+    } else if (param === 'price') {
 
       return getMobileListInRange();
-    } else if('sort'){
+    } else if(param === 'sort'){
       
       return sortByPrice();
     }

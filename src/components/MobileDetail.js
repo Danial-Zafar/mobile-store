@@ -4,7 +4,6 @@ import Grid from '@material-ui/core/Grid';
 import { useParams } from 'react-router-dom';
 
 import { MobileDBContext } from '../App'
-import MobileCard from './MobileCard'
 import MobileDetailView from './MobileDetailView'
 
 
@@ -22,11 +21,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function MobileDetail() {
-  const [spacing, setSpacing] = React.useState(2);
   const classes = useStyles();
   const { id } = useParams();
-
-
 
   return (
     
@@ -35,7 +31,7 @@ export default function MobileDetail() {
         <MobileDBContext.Consumer>
           {
               mobiles => {
-              const  x=mobiles ? mobiles.find(x=>x.id==id):null;
+              const  x=mobiles ? mobiles.find(x=>x.id === id) : null;
            
               return (
                 <Grid container spacing={3} >

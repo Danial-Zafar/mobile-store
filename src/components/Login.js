@@ -3,11 +3,14 @@ import axios from 'axios';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Grid from '@material-ui/core/Grid';
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
 
   const [userName, setUserName] = React.useState('');
   const [password, setPassword] = React.useState('');
+
+  const navigate = useNavigate();
 
 
   const onUsernameChange = (event) => {
@@ -23,7 +26,15 @@ export default function Login() {
          const res = await axios.get('http://localhost:3000/users')
      
        const userNameIsValid= res.data.users.some(obj => obj.userName === userName)
-       console.log(userNameIsValid);
+       const passwordIsValid= res.data.users.some(obj => obj.password === password)
+
+       if(userNameIsValid && passwordIsValid){
+        localStorage.setItem('user', userName);
+
+        navigate('/dashboard')
+       } else{
+
+       }
         
      } catch (err){
      
@@ -51,7 +62,7 @@ export default function Login() {
             spacing={4}
         >
         <Grid  item xs={12}>
-          <Button variant="outlined" onClick={validateCredenitals}>Login</Button>
+          <Button variant="outlined" onClick={validateCredenitals.bind()}>Login</Button>
           <Button variant="outlined">Reset</Button>
         </Grid>
        
