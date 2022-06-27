@@ -9,6 +9,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
+import { useSnackbar } from 'notistack';
 
 const useStyles = makeStyles({
   root: {
@@ -20,20 +21,33 @@ export default function MobileCard(props) {
   const classes = useStyles();
 
   const navigate = useNavigate();
+  const { enqueueSnackbar } = useSnackbar();
+
 
   function addToCart() {
-    if(!JSON.parse(localStorage.getItem("cart"))){
+    if (localStorage.getItem('user')) {
+
+      if (!JSON.parse(localStorage.getItem("cart"))) {
       
-      localStorage.setItem('cart', JSON.stringify([props.mobile]));
+        localStorage.setItem('cart', JSON.stringify([props.mobile]));
+
+      } else {
+      
+        let cartItems = JSON.parse(localStorage.getItem("cart"));
+
+        cartItems.push(props.mobile)
+
+        localStorage.setItem('cart', JSON.stringify(cartItems));
+        
+      }
+
+      enqueueSnackbar('Item added to the cart', { variant: 'success' })
     } else {
-      let cartItems = JSON.parse(localStorage.getItem("cart"));
-     
-      cartItems.push(props.mobile)
-     
-      localStorage.setItem('cart', JSON.stringify(cartItems));
-     
+      enqueueSnackbar('Plase login to place an order', { variant: 'error' })
     }
+
   }
+
 
   return (
     <Grid item xs={3}>

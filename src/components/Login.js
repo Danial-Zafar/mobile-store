@@ -4,6 +4,7 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Grid from '@material-ui/core/Grid';
 import { useNavigate } from "react-router-dom";
+import { useSnackbar } from 'notistack';
 
 export default function Login() {
 
@@ -11,6 +12,7 @@ export default function Login() {
   const [password, setPassword] = React.useState('');
 
   const navigate = useNavigate();
+  const { enqueueSnackbar } = useSnackbar();
 
 
   const onUsernameChange = (event) => {
@@ -32,8 +34,9 @@ export default function Login() {
         localStorage.setItem('user', userName);
 
         navigate('/dashboard')
+        enqueueSnackbar('Login Successfully', { variant: 'success' })
        } else{
-
+        enqueueSnackbar('Username or password did not match', { variant: 'error' })
        }
         
      } catch (err){

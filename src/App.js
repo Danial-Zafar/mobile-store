@@ -39,9 +39,8 @@ function App() {
 
   return (
       <div className="App">
-        
-        <NavBar />
         <SnackbarProvider maxSnack={3}>
+        <NavBar />
         <MobileDBContext.Provider value={mobileData.mobiles}>
           <Container maxWidth="xl">
             <Routes>

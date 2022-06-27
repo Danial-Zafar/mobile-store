@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { useNavigate } from "react-router-dom";
 
 import Avatar from '@mui/material/Avatar';
@@ -8,20 +8,28 @@ import Menu from '@mui/material/Menu';
 import IconButton from '@mui/material/IconButton';
 import MenuItem from '@mui/material/MenuItem';
 import Typography from '@mui/material/Typography';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { useSnackbar } from 'notistack';
 
 export default function LoggedInComponent() {
-    const [anchorElUser, setAnchorElUser] = React.useState(null);
+    const [anchorElUser, setAnchorElUser] = useState(null);
     const navigate = useNavigate();
+    const { enqueueSnackbar } = useSnackbar();
     const setting = 'Logout';
 
     const handleCloseUserMenu = () => {
-        localStorage.clear();
+      
         setAnchorElUser(null);
     };
 
     const handleOpenUserMenu = (event) => {
         setAnchorElUser(event.currentTarget);
     };
+
+    const logOut = () => {
+        localStorage.clear();
+        enqueueSnackbar('Logout successfully', { variant: 'success' });
+    }
 
 
     function loggedInUser() {
@@ -31,7 +39,8 @@ export default function LoggedInComponent() {
                     <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                         <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
                     </IconButton>
-                </Tooltip><Menu
+                </Tooltip>
+                <Menu
                     sx={{ mt: '45px' }}
                     id="menu-appbar"
                     anchorEl={anchorElUser}
@@ -47,33 +56,31 @@ export default function LoggedInComponent() {
                     open={Boolean(anchorElUser)}
                     onClose={handleCloseUserMenu}
                 >
-                    
-                        <MenuItem  onClick={handleCloseUserMenu}>
-                            <Typography textAlign="center">{setting}</Typography>
-                        </MenuItem>
-                    
+
+                    <MenuItem onClick={handleCloseUserMenu}>
+                        <Typography onClick={logOut.bind()} textAlign="center">{setting}</Typography>
+                    </MenuItem>
                 </Menu>
             </>
         );
     }
 
     function guest() {
-       
-        return(
+
+        return (
             <Button variant="contained" onClick={() => navigate('/login')}>Login</Button>
         );
     }
 
     function userState() {
-       
-        if(localStorage.getItem('user')) {
-            
+
+        if (localStorage.getItem('user')) {
+
             return loggedInUser();
         } else {
-            
+
             return guest();
         }
-
     }
 
     return (

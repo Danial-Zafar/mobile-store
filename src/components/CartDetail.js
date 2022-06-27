@@ -56,11 +56,11 @@ export default function CartDetail() {
 
 
   const handleClickVariant = (variant) => () => {
-    enqueueSnackbar('This is a success message!', { variant });
+    enqueueSnackbar('Your order is placed successfully!', { variant });
   };
 
   function removeCartItem(id) {
-    saveCartItems.
+  //  saveCartItems.
   }
 
   function cartItems() {
