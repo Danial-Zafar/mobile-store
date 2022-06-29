@@ -9,7 +9,7 @@ import MobileCard from "./MobileCard";
 import { MobileDBContext } from "../App";
 
 export default function Dashboard() {
-  const [value, setValue] = useState([0, 100]);
+  const [value, setValue] = useState([0, 500]);
   const [searchText, setSearchText] = useState("");
   const [filterType, setFilter] = useState("search");
 
@@ -28,6 +28,7 @@ export default function Dashboard() {
 
   const onSearchChange = (event) => {
     setSearchText(event.target.value);
+    setFilter('search')
   };
 
   let getMobileListInRange = () => {
@@ -72,12 +73,14 @@ export default function Dashboard() {
         });
     }
 
+    console.log(mobileList, 'list');
+
     return (
       mobileList && mobileList.map((x) => <MobileCard key={x.id} mobile={x} />)
     );
   };
 
-  let mobileList = (param) => {
+  const mobileList = (param) => {
     if (param === "search") {
       return searchMobileList();
     } else if (param === "price") {
