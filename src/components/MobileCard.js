@@ -23,7 +23,7 @@ export default function MobileCard(props) {
   const navigate = useNavigate();
   const { enqueueSnackbar } = useSnackbar();
 
-  function addToCart() {
+   function addToCart() {
     if (localStorage.getItem("user")) {
       if (!JSON.parse(localStorage.getItem("cart"))) {
         const mobile = { ...props.mobile, quantity: 1 };
@@ -32,9 +32,9 @@ export default function MobileCard(props) {
       } else {
         let cartItems = JSON.parse(localStorage.getItem("cart"));
 
-        if (cartItems.some((x) => x.id == props.mobile.id)) {
+        if (cartItems.some((x) => x.id === props.mobile.id)) {
           cartItems = cartItems.map((x) => {
-            if (x.id == props.mobile.id) {
+            if (x.id === props.mobile.id) {
               x = { ...x, quantity: x.quantity + 1 };
 
               return x;
@@ -80,13 +80,11 @@ export default function MobileCard(props) {
           <Button
             size="small"
             color="primary"
-            onClick={() =>
-              navigate(`/mobile-details/${props.mobile && props.mobile?.id}`)
-            }
+            onClick={() => navigate(`/mobile-details/${props.mobile?.id}`)}
           >
             View Details
           </Button>
-          <Button size="small" color="primary" onClick={addToCart.bind()}>
+          <Button size="small" color="primary" onClick={() => addToCart()}>
             Add to Cart
           </Button>
         </CardActions>
@@ -94,3 +92,4 @@ export default function MobileCard(props) {
     </Grid>
   );
 }
+

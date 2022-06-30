@@ -12,6 +12,7 @@ import { useNavigate } from "react-router-dom";
 import LoggedInComponent from "./LoggedInComponent";
 
 const ResponsiveAppBar = () => {
+  
   let isCartEmpty = localStorage.getItem("cart") ? true : false;
   const navigate = useNavigate();
 

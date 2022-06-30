@@ -25,18 +25,18 @@ export default function CartDetail() {
   );
 
   const handleClickVariant = () => () => {
-    if (localStorage.getItem("cart")) {
+    if (saveCartItems && saveCartItems.length > 0) {
       enqueueSnackbar("Your order is placed successfully!", {
         variant: "success",
       });
-      localStorage.removeItem("cart");
+      setSaveCartItems(localStorage.removeItem("cart"));
     } else {
       enqueueSnackbar("Cart is emppty", { variant: "error" });
     }
   };
 
   const removeCartItem = (id) => {
-    setSaveCartItems(saveCartItems.filter((x) => x.id != id));
+    setSaveCartItems(saveCartItems.filter((x) => x.id !== id));
     localStorage.setItem("cart", JSON.stringify(saveCartItems));
   };
 
@@ -60,6 +60,7 @@ export default function CartDetail() {
       ) : (
         <> </>
       );
+
     return (
       <>
         {saveCartItems &&
@@ -67,7 +68,7 @@ export default function CartDetail() {
             return (
               <TableRow key={x.id}>
                 <TableCell>
-                  <img src={x.imageURL} />
+                  <img src={x.imageURL} alt="mobile" />
                 </TableCell>
                 <TableCell align="left">{x.deviceName}</TableCell>
                 <TableCell align="left">
@@ -91,26 +92,34 @@ export default function CartDetail() {
     );
   };
 
-  return (
+  const cartDetail = () => {
+    const cartPage = (saveCartItems && saveCartItems.length>0) ?  
     <>
-      <h1>Cart Detail</h1>
-      <TableContainer component={Paper}>
-        <Table className={classes.table} aria-label="spanning table">
-          <TableHead>
-            <TableRow>
-              <TableCell align="left">Device</TableCell>
-              <TableCell align="left">Model</TableCell>
-              <TableCell align="left">Quantity</TableCell>
-              <TableCell align="left">Price</TableCell>
-              <TableCell align="left"></TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>{cartItems()}</TableBody>
-        </Table>
-      </TableContainer>
-      <>
-        <Button onClick={handleClickVariant()}>Place Order</Button>
-      </>
+    <h1>Cart Detail</h1>
+    <TableContainer component={Paper}>
+      <Table className={classes.table} aria-label="spanning table">
+        <TableHead>
+          <TableRow>
+            <TableCell align="left">Device</TableCell>
+            <TableCell align="left">Model</TableCell>
+            <TableCell align="left">Quantity</TableCell>
+            <TableCell align="left">Price</TableCell>
+            <TableCell align="left"></TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>{cartItems()}</TableBody>
+      </Table>
+    </TableContainer>
+    <>
+      <Button onClick={handleClickVariant()}>Place Order</Button>
     </>
+  </> : <h1>Cart is empty</h1>
+    return (
+      cartPage
+    )
+  }
+
+  return (
+   cartDetail()
   );
 }

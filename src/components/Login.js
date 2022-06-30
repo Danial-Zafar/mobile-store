@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
@@ -7,8 +7,8 @@ import { useNavigate } from "react-router-dom";
 import { useSnackbar } from "notistack";
 
 export default function Login() {
-  const [userName, setUserName] = React.useState("");
-  const [password, setPassword] = React.useState("");
+  const [userName, setUserName] = useState("");
+  const [password, setPassword] = useState("");
 
   const navigate = useNavigate();
   const { enqueueSnackbar } = useSnackbar();
@@ -71,10 +71,18 @@ export default function Login() {
       </Grid>
       <Grid container justifyContent="center" alignItems="center" spacing={4}>
         <Grid item xs={12}>
-          <Button variant="outlined" onClick={validateCredenitals.bind()}>
+          <Button variant="outlined" onClick={() => validateCredenitals()}>
             Login
           </Button>
-          <Button variant="outlined">Reset</Button>
+          <Button
+            onClick={() => {
+              setUserName("");
+              setPassword("");
+            }}
+            variant="outlined"
+          >
+            Reset
+          </Button>
         </Grid>
       </Grid>
     </>

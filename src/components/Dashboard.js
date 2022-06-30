@@ -1,4 +1,4 @@
-import React, { useEffect, useContext, useState } from "react";
+import React, { useContext, useState } from "react";
 import Grid from "@material-ui/core/Grid";
 import Box from "@mui/material/Box";
 import Slider from "@mui/material/Slider";
@@ -28,7 +28,7 @@ export default function Dashboard() {
 
   const onSearchChange = (event) => {
     setSearchText(event.target.value);
-    setFilter('search')
+    setFilter("search");
   };
 
   let getMobileListInRange = () => {
@@ -38,6 +38,8 @@ export default function Dashboard() {
         if (value[0] <= x.price && x.price <= value[1]) {
           return <MobileCard key={x.id} mobile={x} />;
         }
+
+        return null;
       });
 
     return mobileList;
@@ -47,9 +49,11 @@ export default function Dashboard() {
     const mobileList =
       mobiles &&
       mobiles.map((x) => {
-        if (x.deviceName.includes(searchText)) {
+        if (x.deviceName.toLowerCase().includes(searchText.toLowerCase())) {
           return <MobileCard key={x.id} mobile={x} />;
         }
+
+        return null;
       });
 
     return mobileList;
@@ -73,7 +77,7 @@ export default function Dashboard() {
         });
     }
 
-    console.log(mobileList, 'list');
+    console.log(mobileList, "list");
 
     return (
       mobileList && mobileList.map((x) => <MobileCard key={x.id} mobile={x} />)
