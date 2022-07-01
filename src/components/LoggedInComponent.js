@@ -11,6 +11,8 @@ import Typography from "@mui/material/Typography";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { useSnackbar } from "notistack";
 
+import {AppConstant} from "../constants/constants"
+
 export default function LoggedInComponent() {
   const [anchorElUser, setAnchorElUser] = useState(null);
   const navigate = useNavigate();
@@ -66,7 +68,7 @@ export default function LoggedInComponent() {
 
   function guest() {
     return (
-      <Button variant="contained" onClick={() => navigate("/login")}>
+      <Button variant="contained" onClick={() => navigate(AppConstant.navigation.login)}>
         Login
       </Button>
     );

@@ -12,6 +12,7 @@ import Login from "./components/Login";
 import MobileDetail from "./components/MobileDetail";
 import CartDetail from "./components/CartDetail";
 import Home from "./components/Home";
+import {AppConstant} from "./constants/constants"
 
 export const MobileDBContext = React.createContext();
 
@@ -21,7 +22,7 @@ function App() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const res = await axios.get("http://localhost:3000/mobiles");
+        const res = await axios.get(AppConstant.fakeApi.mobiles);
 
         setMobileData(res.data);
       } catch (err) {
@@ -39,11 +40,11 @@ function App() {
         <MobileDBContext.Provider value={mobileData.mobiles}>
           <Container maxWidth="xl">
             <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="dashboard" element={<Dashboard />} />
-              <Route path="mobile-details/:id" element={<MobileDetail />} />
-              <Route path="cart" element={<CartDetail />} />
+              <Route path={AppConstant.navigation.home} element={<Home />} />
+              <Route path={AppConstant.navigation.login} element={<Login />} />
+              <Route path={AppConstant.navigation.dashboard} element={<Dashboard />} />
+              <Route path={AppConstant.navigation.mobiledetails()} element={<MobileDetail />} />
+              <Route path={AppConstant.navigation.cart} element={<CartDetail />} />
             </Routes>
           </Container>
         </MobileDBContext.Provider>

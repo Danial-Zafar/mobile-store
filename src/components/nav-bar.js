@@ -10,6 +10,7 @@ import ShoppingCartTwoToneIcon from "@mui/icons-material/ShoppingCartTwoTone";
 import { useNavigate } from "react-router-dom";
 
 import LoggedInComponent from "./LoggedInComponent";
+import {AppConstant} from "../constants/constants"
 
 const ResponsiveAppBar = () => {
   
@@ -20,14 +21,14 @@ const ResponsiveAppBar = () => {
     if (isCartEmpty) {
       return (
         <ShoppingCartIcon
-          onClick={() => navigate("/cart")}
+          onClick={() => navigate(AppConstant.navigation.cart)}
           sx={{ display: { xs: "flex", md: "flex" }, p: 1 }}
         />
       );
     } else {
       return (
         <ShoppingCartTwoToneIcon
-          onClick={() => navigate("/cart")}
+          onClick={() => navigate(AppConstant.navigation.cart)}
           sx={{ display: { xs: "flex", md: "flex" }, p: 1 }}
         />
       );

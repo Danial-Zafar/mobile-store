@@ -77,8 +77,6 @@ export default function Dashboard() {
         });
     }
 
-    console.log(mobileList, "list");
-
     return (
       mobileList && mobileList.map((x) => <MobileCard key={x.id} mobile={x} />)
     );

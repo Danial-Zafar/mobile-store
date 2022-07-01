@@ -6,6 +6,8 @@ import Grid from "@material-ui/core/Grid";
 import { useNavigate } from "react-router-dom";
 import { useSnackbar } from "notistack";
 
+import {AppConstant} from "../constants/constants"
+
 export default function Login() {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
@@ -23,7 +25,7 @@ export default function Login() {
 
   async function validateCredenitals() {
     try {
-      const res = await axios.get("http://localhost:3000/users");
+      const res = await axios.get(AppConstant.fakeApi.users);
 
       const userNameIsValid = res.data.users.some(
         (obj) => obj.userName === userName
@@ -35,7 +37,7 @@ export default function Login() {
       if (userNameIsValid && passwordIsValid) {
         localStorage.setItem("user", userName);
 
-        navigate("/dashboard");
+        navigate(AppConstant.navigation.dashboard);
         enqueueSnackbar("Login Successfully", { variant: "success" });
       } else {
         enqueueSnackbar("Username or password did not match", {

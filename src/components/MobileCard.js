@@ -11,6 +11,8 @@ import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import { useSnackbar } from "notistack";
 
+import {AppConstant} from "../constants/constants"
+
 const useStyles = makeStyles({
   root: {
     maxWidth: 345,
@@ -80,7 +82,7 @@ export default function MobileCard(props) {
           <Button
             size="small"
             color="primary"
-            onClick={() => navigate(`/mobile-details/${props.mobile?.id}`)}
+            onClick={() => navigate(AppConstant.navigation.mobiledetails(props.mobile?.id))}
           >
             View Details
           </Button>
