@@ -8,7 +8,6 @@ import Menu from "@mui/material/Menu";
 import IconButton from "@mui/material/IconButton";
 import MenuItem from "@mui/material/MenuItem";
 import Typography from "@mui/material/Typography";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { useSnackbar } from "notistack";
 
 import {AppConstant} from "../constants/constants"
