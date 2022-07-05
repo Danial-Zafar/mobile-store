@@ -8,13 +8,10 @@ import { SnackbarProvider } from "notistack";
 
 
 describe('Login', () => {
+  const wrapper = ({ children }) => <SnackbarProvider><Router>{children}</Router></SnackbarProvider>
+ 
   it('check handleTextChanged function', () => {
-    const wrapper = ({ children }) => <SnackbarProvider><Router>{children}</Router></SnackbarProvider>
-    
-    
     const { result } = renderHook(() => useLogin(),{ wrapper });
-    result.current.userName;
-
     const changedValue = 'hello'
   
     act(() => {
@@ -22,14 +19,10 @@ describe('Login', () => {
     });
     expect(result.current.userName).toBe(changedValue);
 
-
   });
 
   it('check validateCredenitals function', () => {
-    const wrapper = ({ children }) => <SnackbarProvider><Router>{children}</Router></SnackbarProvider>
-    const { result } = renderHook(() => useLogin(), { wrapper });
-    result.current.password;
-
+    const { result } = renderHook(() => useLogin(),{ wrapper });
     const changedValue = 'hello';
     act(() => {
       result.current.setPassword(changedValue);
@@ -38,33 +31,22 @@ describe('Login', () => {
   });
   
   it('check onPasswordChange function', async () => {
-    const wrapper = ({ children }) => <SnackbarProvider><Router>{children}</Router></SnackbarProvider>
-    const { result } = renderHook(() => useLogin(), { wrapper });
-    
+    const { result } = renderHook(() => useLogin(),{ wrapper });
     const username = 'danial';
     const pass = 'danial';
     
     
     try {
-
-      result.current.validateCredenitals();
+      result.current.setUserName(username);
+      result.current.setPassword(pass); 
+     
       act(() => {
-        result.current.setUserName(username);
-        result.current.setPassword(pass);  
+        result.current.validateCredenitals();
       });
 
-      expect(localStorage.getItem("user")).toBe(result.current.userName);
+      expect(result.current.userName).toBe(localStorage.getItem("user"));
     } catch (e) {
       expect(e).toBe(e);
     }
-   
   });
-    
 });
-
-
-
-
-// test('test login', async ()=>{
- 
-// })
