@@ -59,8 +59,8 @@ export default function MobileCard(props) {
   }
 
   return (
-    <Grid item xs={3}>
-      <Card className={classes.root}>
+    <Grid item xs={12} sm={6} md={3}>
+      <Card className={classes.root} justify="center">
         <CardActionArea>
           <CardMedia
             component="img"

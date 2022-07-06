@@ -96,9 +96,9 @@ export default function Dashboard() {
     <div>
       <h1>Mobiles</h1>
 
-      <Grid container spacing={2}>
-        <Grid item xs={4}>
-          <Box sx={{ width: 300 }}>
+      <Grid container spacing={2} >
+        <Grid item xs={12} md={4} sm={4} >
+          
             <Slider
               getAriaLabel={() => "price range"}
               value={value}
@@ -120,14 +120,14 @@ export default function Dashboard() {
                   })
               )}
             />
-          </Box>
+        
         </Grid>
-        <Grid item xs={4}>
+        <Grid item xs={12} md={4} sm={4}>
           <Button onClick={() => setFilter("sort")} variant="contained">
             Sort
           </Button>
         </Grid>
-        <Grid item xs={4}>
+        <Grid item xs={12} md={4} sm={4}>
           <TextField
             id="standard-basic"
             label="Search"
